@@ -10,9 +10,16 @@ namespace ProxyMode
     {
         private string name = "";
 
-        public GamePlayer(string _name)
+        public GamePlayer(IGamePlayer _gamePlayer, string _name)
         {
-            this.name = _name;
+            if (_gamePlayer == null)
+            {
+                throw new Exception("Can't create the realy player.");
+            }
+            else
+            {
+                this.name = _name;
+            }
         }
 
         public void login(string user, string password)

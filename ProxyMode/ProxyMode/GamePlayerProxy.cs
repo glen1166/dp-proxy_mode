@@ -10,9 +10,15 @@ namespace ProxyMode
     {
         private IGamePlayer gamePlayer = null;
 
-        public GamePlayerProxy(IGamePlayer _gamePlayer)
+        public GamePlayerProxy(string name)
         {
-            this.gamePlayer = _gamePlayer;
+            try
+            {
+                gamePlayer = new GamePlayer(this, name);
+            }
+            catch (Exception ex) {
+                
+            }
         }
 
         public void login(string user, string password)
