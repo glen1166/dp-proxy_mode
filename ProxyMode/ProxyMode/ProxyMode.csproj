@@ -45,6 +45,7 @@
     <Compile Include="GamePlayer.cs" />
     <Compile Include="GamePlayerProxy.cs" />
     <Compile Include="IGamePlayer.cs" />
+    <Compile Include="IProxy.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProxyMode
 {
-    public class GamePlayerProxy : IGamePlayer
+    public class GamePlayerProxy : IGamePlayer, IProxy
     {
         private IGamePlayer gamePlayer = null;
 
@@ -33,6 +33,11 @@ namespace ProxyMode
         public IGamePlayer getProxy()
         {
             return this;
+        }
+
+        public void count()
+        {
+            Console.WriteLine("Cost: $100");
         }
     }
 }
