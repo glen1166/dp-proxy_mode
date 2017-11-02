@@ -13,5 +13,7 @@ namespace ProxyMode
         void killBoss();
 
         void upgrade();
+
+        IGamePlayer getProxy();
     }
 }

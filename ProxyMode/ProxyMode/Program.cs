@@ -10,8 +10,9 @@ namespace ProxyMode
     {
         static void Main(string[] args)
         {
-            IGamePlayer proxy = new GamePlayerProxy("Jack");
-            proxy.login("Jack", "123");
+            IGamePlayer player = new GamePlayer("Jack");
+            IGamePlayer proxy = player.getProxy();
+            player.login("Jack", "123");
         }
     }
 }

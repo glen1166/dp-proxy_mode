@@ -9,32 +9,58 @@ namespace ProxyMode
     public class GamePlayer : IGamePlayer
     {
         private string name = "";
+        private IGamePlayer proxy = null;
 
-        public GamePlayer(IGamePlayer _gamePlayer, string _name)
+        public GamePlayer(string _name)
         {
-            if (_gamePlayer == null)
-            {
-                throw new Exception("Can't create the realy player.");
-            }
-            else
-            {
-                this.name = _name;
-            }
+            this.name = _name;
         }
 
         public void login(string user, string password)
         {
-            Console.WriteLine("Login successfully.");
+            if (this.isProxy())
+            {
+                Console.WriteLine("Login successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Please access it from proxy.");
+            }
         }
 
         public void killBoss()
         {
-            Console.WriteLine("Killed a boss.");
+            if (this.isProxy())
+            {
+                Console.WriteLine("Killed a boss.");
+            }
+            else
+            {
+                Console.WriteLine("Please access it from proxy.");
+            }
         }
 
         public void upgrade()
         {
-            Console.WriteLine("Upgraded.");
+            if (this.isProxy())
+            {
+                Console.WriteLine("Upgraded.");
+            }
+            else
+            {
+                Console.WriteLine("Please access it from proxy.");
+            }
+        }
+
+        public IGamePlayer getProxy()
+        {
+            this.proxy = new GamePlayerProxy(this);
+            return this.proxy;
+        }
+
+        private bool isProxy()
+        {
+            return this.proxy != null;
         }
     }
 }
